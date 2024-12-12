@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: pink;
+    color: black;
+    padding: 10px 20px;
+  }
+  
+  .menu button,
+  .auth button {
+    background-color: pink;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .menu button:hover,
+  .auth button:hover {
+    background-color: pink;
+  }
+  
