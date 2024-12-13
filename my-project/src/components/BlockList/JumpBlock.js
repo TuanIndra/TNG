@@ -5,15 +5,22 @@ import { v4 as uuidv4 } from "uuid";
 const JumpBlock = () => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "BLOCK",
-    item: {
+    item: () => ({
       id: uuidv4(),
       type: "JUMP",
       label: "Nhảy tới vị trí ngẫu nhiên",
-    },
+      style: {
+        backgroundColor: "orange", // Màu cam cho block
+        color: "white",
+        padding: "10px",
+        borderRadius: "5px",
+      },
+    }),
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }));
+  
 
   return (
     <li

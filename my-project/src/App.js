@@ -13,9 +13,7 @@ const App = () => {
     <DndProvider backend={HTML5Backend}>
       <Header/>
       <div className="app">
-        <BlockList />
-        <Editor />
-        
+        <Editor />        
       </div>
 
     </DndProvider>

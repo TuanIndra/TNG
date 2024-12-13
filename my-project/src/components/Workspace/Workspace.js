@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
 import "../style/Workspace.css";
+import WorkspaceBlock from "./WorkspaceBlock"; // Import thành phần con
 
-const Workspace = ({ onDropBlock, blocks, onBlockClick }) => {
+const Workspace = ({ onDropBlock, blocks, onBlockDrag, onBlockClick   }) => {
+  const dropRef = useRef(null);
+
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "BLOCK",
-    drop: (item) => onDropBlock(item), // Retain the full block object with label and angle
+    drop: (item, monitor) => {
+      if (dropRef.current) {
+        const clientOffset = monitor.getClientOffset();
+        const workspaceOffset = dropRef.current.getBoundingClientRect();
+  
+        const relativeX = clientOffset.x - workspaceOffset.left;
+        const relativeY = clientOffset.y - workspaceOffset.top;
+  
+        onDropBlock({
+          ...item,
+          position: { x: relativeX, y: relativeY },
+        });
+      }
+    },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
   }));
+  
+  drop(dropRef); // Kết nối vùng thả
+  
 
   return (
-    <section className="workspace" ref={drop}>
+    <section className="workspace">
       <h3>Workspace</h3>
       <div
         className="workspace-canvas"
+        ref={dropRef}
         style={{
           backgroundColor: isOver ? "#f0f0f0" : "#fff",
         }}
@@ -25,18 +45,12 @@ const Workspace = ({ onDropBlock, blocks, onBlockClick }) => {
         ) : (
           <ul>
             {blocks.map((block, index) => (
-                <li
-            key={index}
-            style={{
-                cursor: "pointer",
-                border: "1px solid #ccc",
-                margin: "5px",
-                padding: "5px",
-            }}
-            onClick={() => onBlockClick(block)}
-            >
-            {block.label || block.type} {/* Hiển thị label */}
-            </li>
+              <WorkspaceBlock
+                key={index}
+                block={block}
+                onBlockClick={onBlockClick} 
+                onBlockDrag={onBlockDrag}
+              />
             ))}
           </ul>
         )}

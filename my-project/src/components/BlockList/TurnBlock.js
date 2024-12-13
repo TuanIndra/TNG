@@ -4,22 +4,29 @@ import { v4 as uuidv4 } from "uuid";
 
 const TurnBlock = () => {
   const [angle, setAngle] = useState(15);
-  const [{ isDragging }, drag] = useDrag(() => ({
+
+  const [{ isDragging }, drag] = useDrag({
     type: "BLOCK",
     item: {
       id: uuidv4(),
       type: "TURN",
       label: `Xoay ${angle} độ`,
       angle,
+      style: {
+        backgroundColor: "green", // Màu xanh lá
+        color: "white",
+        padding: "10px",
+        borderRadius: "5px",
+      },
     },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
-  }));
+  });
 
   return (
     <li
-      ref={drag}
+      ref={drag} // Kết nối với hook `useDrag`
       style={{
         opacity: isDragging ? 0.5 : 1,
         cursor: "move",
@@ -35,7 +42,7 @@ const TurnBlock = () => {
         <input
           type="number"
           value={angle}
-          onChange={(e) => setAngle(Number(e.target.value))}
+          onChange={(e) => setAngle(Number(e.target.value))} // Cập nhật giá trị `angle`
           style={{ width: "50px", margin: "0 5px" }}
         />
         độ

@@ -14,12 +14,16 @@
 
 .workspace-canvas {
     height: 980px;
-    border: 2px dashed #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #ffffff;
     border-radius: 4px;
+    margin: 0; /* Loại bỏ margin */
+    padding: 0; /* Loại bỏ padding */
+    border: 2px dashed #ccc; /* Giữ border nếu cần */
+    box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng kích thước */
+    position: relative; /* Đảm bảo vùng thả được tính toán chính xác */
 }
 .workspace-canvas ul {
     list-style-type: none;
