@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/Header.css";
 
 const Header = () => {
+  const navigate = useNavigate(); // Khởi tạo hook điều hướng
+
+  const handleNavigateHome = () => {
+    navigate("/"); // Điều hướng về trang chủ
+  };
   return (
     <header className="header">
       <div className="menu">
-        <button>Settings</button>
+        <button onClick={handleNavigateHome}>Trang chủ</button>
         <button>Tập tin</button>
         <button>Chỉnh sửa</button>
         <button>Hướng dẫn</button>

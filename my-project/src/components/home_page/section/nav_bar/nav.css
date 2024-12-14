@@ -1,0 +1,134 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    position: fixed; /* Cố định Navbar ở vị trí */
+    top: 0; /* Đặt Navbar ở trên cùng */
+    left: 0; /* Đặt Navbar ở bên trái */
+    width: 100%; /* Chiều rộng bằng 100% màn hình */
+    z-index: 1000; /* Đảm bảo Navbar nằm trên cùng của các phần tử khác */
+    background-color: #f8f8f8; /* Màu nền */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: top 0.3s ease; /* Hiệu ứng mượt mà khi ẩn/hiện */
+  }
+  
+  .navbar.hidden {
+    top: -100px; /* Ẩn Navbar bằng cách di chuyển lên trên */
+  }
+  
+  .navbar.visible {
+    top: 0; /* Hiển thị Navbar ở vị trí ban đầu */
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .logo-image {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+    border-radius: 50%; /* Optional: Makes the image circular */
+    margin-right: 10px; /* Optional: Adds spacing between the logo and text */
+  }
+  
+  .navbar a:hover {
+    color: #000;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .navbar-brand a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-item a:hover {
+    color: #000;
+  }
+  
+  /* Search Bar */
+  .search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Bo góc tròn */
+    font-size: 14px;
+    outline: none; /* Loại bỏ đường viền mặc định khi focus */
+    transition: border-color 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+    width: 250px;
+  }
+  
+  .search-bar input:focus {
+    border-color: #007bff; /* Màu viền khi focus */
+  }
+  
+  /* Auth Buttons */
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .auth-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .join {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .sign-in {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .join:hover {
+    background-color: #0056b3;
+  }
+  
+  .sign-in:hover {
+    background-color: #218838;
+  }

@@ -1,0 +1,9 @@
+.editor-container {
+    display: flex; /* Sử dụng flexbox để tạo layout ngang */
+    justify-content: space-between; /* Khoảng cách giữa các thành phần */
+    align-items: flex-start; /* Căn các thành phần theo hàng trên cùng */
+    width: 100%; /* Đảm bảo container chiếm toàn bộ chiều ngang */
+    height: 100vh; /* Đảm bảo chiều cao 100% màn hình */
+  }
+
+  

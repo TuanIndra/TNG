@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Workspace from "../Workspace/Workspace";
 import Preview from "../Preview/Preview";
 import BlockList from "../BlockList/BlockList";
-
+import "../style/Editor.css";
+import Header from "../Header/Header.js"
 const Editor = () => {
   const [workspaceBlocks, setWorkspaceBlocks] = useState([]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -276,7 +277,9 @@ const Editor = () => {
   };
 
   return (
-    <>
+    <div>
+      <Header/>
+      <div className="editor-container">
       <BlockList onRemoveBlock={handleRemoveBlock} />
       <Workspace
         onDropBlock={handleDrop}
@@ -287,10 +290,12 @@ const Editor = () => {
       <Preview 
         position={position} 
         rotation={rotation} 
-        onPositionChange={handlePositionChange} // Đảm bảo hàm này tồn tại
+        onPositionChange={handlePositionChange} 
         previewRef={previewRef}
       />
-    </>
+      </div>
+    </div>
+
   );
 };
 

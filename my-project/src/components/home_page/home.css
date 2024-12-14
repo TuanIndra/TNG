@@ -1,0 +1,222 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: hwb(190 28% 38%); /* Gradient từ xanh sang trắng */
+    color: black; /* Màu chữ trắng */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh; /* Giảm chiều cao xuống 60% của viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .hero-content {
+    background-color: rgba(0,0,0,0.5);
+    padding: 40px 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-content::before {
+    content: "";
+    background-image: url("../../assets/image/hero_image.jpg"); /* Đường dẫn đến ảnh */
+    background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ phần tử */
+    background-position: center; /* Căn giữa ảnh nền */
+    background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+    position: absolute; /* Đặt ảnh nền ở vị trí tuyệt đối */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Đặt ảnh nền nằm sau nội dung */
+    border-radius: 8px; /* Bo góc giống như nội dung */
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-creating {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .start-creating:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Info Section */
+  .info-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .info-box {
+    flex: 1 1 300px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+  }
+  
+  .info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .info-box p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  
+  /* Featured Projects Section */
+.featured-section {
+  background: linear-gradient(hwb(190 30% 38%), white); /* Gradient từ xanh sang trắng */
+  color: #ffffff; /* Màu chữ trắng */
+  padding: 50px 20px;
+  text-align: center;
+  position: relative; /* Để các nút nằm trong phạm vi của section */
+}
+
+.featured-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: white; /* Đổi màu chữ thành đen */
+}
+
+/* Swiper Container */
+.swiper-container {
+  width: 100%;
+  max-width: 1200px; /* Đặt giới hạn chiều rộng tối đa cho Swiper */
+  padding: 20px 0; /* Xóa padding */
+  margin: 0 auto; /* Căn giữa Swiper */
+}
+
+/* Project Box */
+.project-box {
+  background-color: #fff; /* Màu nền trắng */
+  padding: 20px; /* Khoảng cách bên trong */
+  border-radius: 12px; /* Bo góc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  text-align: center; /* Căn giữa nội dung */
+  margin: 10px; /* Khoảng cách giữa các khối */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng khi hover */
+}
+
+.project-box:hover {
+  transform: translateY(-5px); /* Nổi lên khi hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Đổ bóng lớn hơn khi hover */
+}
+
+.project-box h3 {
+  font-size: 18px; /* Kích thước chữ */
+  margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+  color: #333; /* Màu chữ đen */
+}
+
+.project-image {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px 12px 0 0; /* Optional: Round the top corners */
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: transparent; /* Xóa nền */
+  border: none; /* Xóa border */
+  cursor: pointer; /* Thay đổi con trỏ chuột */
+  width: 40px; /* Kích thước icon */
+  height: 40px; /* Kích thước icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+  z-index: 10; /* Đảm bảo nút nằm trên Swiper */
+}
+
+.swiper-button-prev {
+  left: 100px; /* Vị trí bên trái gần hơn */
+  margin: 40px;
+}
+
+.swiper-button-next {
+  right: 100px; /* Vị trí bên phải gần hơn */
+  margin: 40px;
+}
+
+.swiper-button-prev img,
+.swiper-button-next img {
+  width: 100%; /* Đảm bảo hình ảnh vừa với kích thước nút */
+  height: 100%; /* Đảm bảo hình ảnh vừa với kích thước nút */
+}
+  
+  /* Swiper Pagination */
+  .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 10px; /* Kích thước nhỏ hơn */
+    height: 10px; /* Kích thước nhỏ hơn */
+    background-color: #555;
+    opacity: 0.5;
+    margin: 0 5px; /* Khoảng cách giữa các dấu chấm */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #007bff;
+    opacity: 1;
+  }
