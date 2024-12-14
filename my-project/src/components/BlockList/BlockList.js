@@ -3,6 +3,9 @@ import MoveBlock from "./MoveBlock";
 import TurnBlock from "./TurnBlock";
 import JumpBlock from "./JumpBlock";
 import TurnBackBlock from "./TurnBackBlock";
+import MoveGradualBlock from "./MoveGradualBlock";
+import JumpToBlock from "./JumpToBlock";
+import ChangeSizeBlock from "./ChangeSizeBlock";
 import { useDrop } from "react-dnd";
 import "../style/BlockList.css";
 
@@ -39,6 +42,9 @@ const BlockList = ({ onRemoveBlock }) => {
         <TurnBlock />
         <TurnBackBlock />
         <JumpBlock />
+        <MoveGradualBlock />
+        <JumpToBlock/>
+        <ChangeSizeBlock/>
       </ul>
     </aside>
     

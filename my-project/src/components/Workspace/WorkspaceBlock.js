@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-const WorkspaceBlock = ({ block, onBlockClick, onBlockDrag }) => {
+const WorkspaceBlock = ({ block, onBlockClick = () => {}, onBlockDrag = () => {} }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "WORKSPACE_BLOCK",
     item: { id: block.id },
@@ -16,13 +16,16 @@ const WorkspaceBlock = ({ block, onBlockClick, onBlockDrag }) => {
     }),
   }));
 
+  // Đảm bảo block.position không bị lỗi
+  const position = block.position || { x: 0, y: 0 };
+
   return (
     <li
       ref={drag} // Đảm bảo `drag` được kết nối đúng với phần tử
       style={{
         position: "absolute",
-        left: `${block.position.x}px`,
-        top: `${block.position.y}px`,
+        left: `${position.x}px`,
+        top: `${position.y}px`,
         cursor: "move",
         opacity: isDragging ? 0.5 : 1,
         ...block.style,
